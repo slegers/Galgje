@@ -1,7 +1,6 @@
 package ui.view;
 
 import javax.swing.*;
-import domain.*;
 import domain.model.Speler;
 
 public class Launcher {

@@ -54,4 +54,9 @@ public class Speler {
             return true;
         }
     }
+
+    @Override
+    public String toString(){
+        return this.naam + " heeft als score: " + this.score;
+    }
 }

@@ -3,6 +3,7 @@ package domain;
 import static com.sun.xml.internal.ws.dump.LoggingDumpTube.Position.Before;
 import static org.junit.Assert.*;
 
+import domain.model.Shapes.Punt;
 import org.junit.Before;
 import org.junit.Test;
 
