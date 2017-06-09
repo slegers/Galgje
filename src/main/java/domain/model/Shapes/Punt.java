@@ -3,7 +3,7 @@ package domain.model.Shapes;;
 /**
  * Created by yanice on 07/06/2017.
  */
-public class Punt {
+public class Punt extends Vorm{
 
     private int x, y;
 
@@ -21,7 +21,7 @@ public class Punt {
     public boolean equals(Object o) {
         Punt p = (Punt) o;
         if (p == null) {
-            throw new RuntimeException("the object may not be null.");
+            return false;
         } else if (this.x == p.getX() && p.getY() == this.y) {
             return true;
         } else {

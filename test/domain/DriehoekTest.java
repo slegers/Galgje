@@ -3,6 +3,8 @@ package domain;
 import static org.junit.Assert.*;
 
 import domain.model.DomainException;
+import domain.model.Shapes.Driehoek;
+import domain.model.Shapes.Punt;
 import org.junit.Test;
 
 public class DriehoekTest {

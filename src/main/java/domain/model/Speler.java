@@ -20,7 +20,7 @@ public class Speler {
     public boolean equals(Object o){
         Speler s = (Speler) o;
         if(s == null){
-            throw new RuntimeException("the object may not be null.");
+            return false;
         }else if(s.getNaam().equals(this.naam) && s.getScore() == this.score){
             return true;
         }
