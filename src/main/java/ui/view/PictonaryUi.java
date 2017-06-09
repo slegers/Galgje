@@ -3,6 +3,7 @@ package ui.view;
 import domain.model.DomainException;
 import domain.model.Shapes.Punt;
 import domain.model.Speler;
+import ui.controller.Controller;
 
 import javax.swing.*;
 
@@ -11,20 +12,11 @@ import javax.swing.*;
  */
 public class PictonaryUi {
     private Speler speler;
+    private Controller controller;
     private Punt p;
 
-    public PictonaryUi(){
-        createSpeler();
-        ShowMenu();
-    }
-
-    private void createSpeler() {
-        String naam = JOptionPane.showInputDialog(null,"Wat is de speler zijn naam.");
-        if(naam.trim().isEmpty()){
-            createSpeler();
-        }else{
-            speler = new Speler(naam);
-        }
+    public PictonaryUi(Controller c){
+        setController(c);
     }
 
     public void ShowMenu(){
@@ -52,5 +44,21 @@ public class PictonaryUi {
 
     private void createPunt() {
 
+    }
+
+    public void setController(Controller controller) {
+        if(controller == null){
+            throw new DomainException("The controller can't be null");
+        }
+        this.controller = controller;
+    }
+
+    public void createPlayer() {
+        String naam = JOptionPane.showInputDialog(null,"Wat is de speler zijn naam.");
+        if(naam.trim().isEmpty()){
+            createPlayer();
+        }else{
+            controller.setHuidigeSpeler(new Speler(naam));
+        }
     }
 }
