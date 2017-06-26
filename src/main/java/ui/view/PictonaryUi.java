@@ -69,7 +69,8 @@ public class PictonaryUi {
                 "2. Maak Een cirkel \n" +
                 "3. Maak driehoek \n" +
                 "4. Maak tekening \n" +
-                "5. Stop \n");
+                "5. Maak Rechthoek \n" +
+                "6. Stop \n");
 
         switch(in.trim()){
             case "1":
@@ -83,6 +84,7 @@ public class PictonaryUi {
             case "4":
                 break;
             case "5":
+                controller.createRechthoek();
                 break;
             default:
                 JOptionPane.showMessageDialog(null,"Whoops hier ging iets mis, probeer opnieuw");

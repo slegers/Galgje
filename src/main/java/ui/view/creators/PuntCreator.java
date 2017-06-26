@@ -34,10 +34,11 @@ public class PuntCreator {
     }
 
     public Punt create() {
-        vraagX();
-        vraagY();
-        p =  new Punt(x,y);
-        return p;
+            vraagX();
+            vraagY();
+            p =  new Punt(x,y);
+            return p;
+
     }
 
     public void show() {

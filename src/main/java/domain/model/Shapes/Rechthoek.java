@@ -6,10 +6,10 @@ package domain.model.Shapes;
 public class Rechthoek extends Vorm{
     private int hoogte;
     private int breedte;
-    private Object linkerBovenhoek;
+    private Punt linkerBovenhoek;
 
     public Rechthoek(Punt linkerBovenhoek, int breedte, int hoogte) {
-
+        setLinkerBovenHoek(linkerBovenhoek);
     }
 
 
@@ -22,7 +22,14 @@ public class Rechthoek extends Vorm{
         return breedte;
     }
 
-    public Object getLinkerBovenhoek() {
+    public Punt getLinkerBovenhoek() {
         return linkerBovenhoek;
+    }
+
+    public void setLinkerBovenHoek(Punt linkerBovenHoek) {
+        if(linkerBovenHoek == null){
+            throw new NullPointerException("Een linkerbovenhoek van een rechthoek mag niet null zijn.");
+        }
+        this.linkerBovenhoek = linkerBovenHoek;
     }
 }

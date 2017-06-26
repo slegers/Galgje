@@ -2,10 +2,12 @@ package ui.controller;
 
 import domain.model.HangmanGame;
 import domain.model.Shapes.Punt;
+import domain.model.Shapes.Rechthoek;
 import domain.model.Speler;
 import ui.view.PictonaryUi;
 import ui.view.creators.CirkelCreator;
 import ui.view.creators.PuntCreator;
+import ui.view.creators.RechthoekCreator;
 
 /**
  * Created by yanice on 10/06/2017.
@@ -43,5 +45,11 @@ public class Controller {
         CirkelCreator cc = new CirkelCreator();
         cc.cirkelCreator();
         cc.show();
+    }
+
+    public void createRechthoek() {
+        RechthoekCreator rc = new RechthoekCreator();
+        Rechthoek r = rc.create();
+        rc.show();
     }
 }
