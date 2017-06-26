@@ -19,4 +19,30 @@ public class Cirkel extends Vorm {
     public void setMiddelPunt(Punt middelPunt) {
         this.middelpunt = middelPunt;
     }
+
+    @Override
+    public String toString() {
+        return "Middelpunt: " + middelpunt.toString() + " Radius: " + radius;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        Cirkel c = (Cirkel) o;
+        if(c == null){
+            throw new NullPointerException("Dit object is niet van het type cirkel");
+        }
+        if(radius == c.getRadius() && c.getMiddelpunt().equals(middelpunt)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public int getRadius() {
+        return radius;
+    }
+
+    public Punt getMiddelpunt() {
+        return middelpunt;
+    }
 }

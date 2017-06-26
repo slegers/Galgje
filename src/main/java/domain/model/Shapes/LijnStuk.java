@@ -51,4 +51,17 @@ public class LijnStuk extends Vorm {
     public String toString(){
         return "Lijn: startpunt: " + startPunt.toString() + "- eindpunt: " + eindPunt.toString();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        LijnStuk l = (LijnStuk) o;
+        if(l == null){
+            throw new NullPointerException("Dit object is niet van het type lijnstuk");
+        }
+        if(l.getEindPunt().equals(eindPunt) && l.getStartPunt().equals(startPunt)){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

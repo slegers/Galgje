@@ -5,4 +5,8 @@ package domain.model.Shapes;
  */
 public abstract class Vorm {
 
+    @Override
+    public abstract String toString();
+    @Override
+    public abstract boolean equals(Object o);
 }

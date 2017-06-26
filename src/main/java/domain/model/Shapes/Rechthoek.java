@@ -32,4 +32,22 @@ public class Rechthoek extends Vorm{
         }
         this.linkerBovenhoek = linkerBovenHoek;
     }
+
+    @Override
+    public String toString() {
+        return "Rechthoek: positie: " + linkerBovenhoek.toString() + "- breedte: " + breedte +" - hoogte: " + hoogte;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        Rechthoek r = (Rechthoek) o;
+        if(r == null){
+            throw new NullPointerException("Dit object is niet van het type Rechthoek");
+        }
+        if(r.getBreedte() == breedte && r.getHoogte() == hoogte && r.getLinkerBovenhoek().equals(linkerBovenhoek)){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
