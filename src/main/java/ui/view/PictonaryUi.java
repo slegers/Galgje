@@ -63,31 +63,25 @@ public class PictonaryUi {
         }
     }
 
-    public void showMenu() {
-       String in = JOptionPane.showInputDialog(null,"Menu: \n" +
-                "1. Maak punt \n" +
-                "2. Maak Een cirkel \n" +
-                "3. Maak driehoek \n" +
-                "4. Maak tekening \n" +
-                "5. Maak Rechthoek \n" +
-                "6. Stop \n");
-
-        switch(in.trim()){
-            case "1":
+    public void showMenu(){
+        Object[] shapes = {"Punt", "Cirkel","Driehoek", "Rechthoek", "Lijnstuk","Tekening" };
+                Object keuze = JOptionPane.showInputDialog(null, "Wat wilt u tekenen", "input", JOptionPane.INFORMATION_MESSAGE, null, shapes, null);
+        switch (keuze.toString()){
+            case "Punt":
                 controller.createPunt();
                 break;
-            case "2":
+            case "Cirkel":
                 controller.createCirkel();
                 break;
-            case "3":
+            case "Driehoek":
                 break;
-            case "4":
-                break;
-            case "5":
+            case "Rechthoek":
                 controller.createRechthoek();
                 break;
+            case "Lijnstuk":
+                controller.createLijnstuk();
             default:
-                JOptionPane.showMessageDialog(null,"Whoops hier ging iets mis, probeer opnieuw");
+                JOptionPane.showMessageDialog(null,"Whoops hier ging hies mis.");
                 showMenu();
                 break;
         }

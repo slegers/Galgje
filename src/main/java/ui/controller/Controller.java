@@ -1,11 +1,13 @@
 package ui.controller;
 
 import domain.model.HangmanGame;
+import domain.model.Shapes.LijnStuk;
 import domain.model.Shapes.Punt;
 import domain.model.Shapes.Rechthoek;
 import domain.model.Speler;
 import ui.view.PictonaryUi;
 import ui.view.creators.CirkelCreator;
+import ui.view.creators.LijnStukCreator;
 import ui.view.creators.PuntCreator;
 import ui.view.creators.RechthoekCreator;
 
@@ -51,5 +53,11 @@ public class Controller {
         RechthoekCreator rc = new RechthoekCreator();
         Rechthoek r = rc.create();
         rc.show();
+    }
+
+    public void createLijnstuk() {
+        LijnStukCreator lc = new LijnStukCreator();
+        LijnStuk l = lc.create();
+        lc.show();
     }
 }
