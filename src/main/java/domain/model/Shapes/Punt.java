@@ -32,6 +32,7 @@ public class Punt extends Vorm{
     public int getX() {
         return x;
     }
+
     public int getY() {
         return y;
     }

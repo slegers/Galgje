@@ -1,5 +1,6 @@
 package ui.view;
 
+import com.sun.codemodel.internal.JOp;
 import domain.model.DomainException;
 import domain.model.Shapes.Punt;
 import domain.model.Speler;
@@ -60,5 +61,34 @@ public class PictonaryUi {
         }else{
             controller.setHuidigeSpeler(new Speler(naam));
         }
+    }
+
+    public void showMenu() {
+       String in = JOptionPane.showInputDialog(null,"Menu: \n" +
+                "1. Maak punt \n" +
+                "2. Maak Een cirkel \n" +
+                "3. Maak driehoek \n" +
+                "4. Maak tekening \n" +
+                "5. Stop \n");
+
+        switch(in.trim()){
+            case "1":
+                controller.createPunt();
+                break;
+            case "2":
+                controller.createCirkel();
+                break;
+            case "3":
+                break;
+            case "4":
+                break;
+            case "5":
+                break;
+            default:
+                JOptionPane.showMessageDialog(null,"Whoops hier ging iets mis, probeer opnieuw");
+                showMenu();
+                break;
+        }
+        showMenu();
     }
 }
