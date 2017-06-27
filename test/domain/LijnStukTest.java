@@ -23,12 +23,12 @@ public class LijnStukTest {
 		assertEquals(punt2, lijnstuk.getEindPunt());
 	}
 	
-	@Test (expected = DomainException.class)
+	@Test (expected = NullPointerException.class)
 	public void LijnStuk_Moet_exception_gooien_als_startpunt_null()  {
 		new LijnStuk(null, punt2);
 	}
 	
-	@Test (expected = DomainException.class)
+	@Test (expected =  NullPointerException.class)
 	public void LijnStuk_Moet_exception_gooien_als_eindpunt_null()  {
 		new LijnStuk(punt1, null);
 	}

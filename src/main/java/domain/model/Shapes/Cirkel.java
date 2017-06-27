@@ -29,7 +29,7 @@ public class Cirkel extends Vorm {
     public boolean equals(Object o) {
         Cirkel c = (Cirkel) o;
         if(c == null){
-            throw new NullPointerException("Dit object is niet van het type cirkel");
+           return false;
         }
         if(radius == c.getRadius() && c.getMiddelpunt().equals(middelpunt)){
             return true;

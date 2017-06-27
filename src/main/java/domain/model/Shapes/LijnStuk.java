@@ -11,8 +11,6 @@ public class LijnStuk extends Vorm {
 
     public LijnStuk(Punt p1, Punt p2){
         setPunten(p1,p2);
-        setStartPunt(p1);
-        setEindPunt(p2);
     }
 
     private void setPunten(Punt p1, Punt p2) {
@@ -56,7 +54,7 @@ public class LijnStuk extends Vorm {
     public boolean equals(Object o) {
         LijnStuk l = (LijnStuk) o;
         if(l == null){
-            throw new NullPointerException("Dit object is niet van het type lijnstuk");
+            return false;
         }
         if(l.getEindPunt().equals(eindPunt) && l.getStartPunt().equals(startPunt)){
             return true;

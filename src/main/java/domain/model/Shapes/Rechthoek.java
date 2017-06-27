@@ -1,5 +1,7 @@
 package domain.model.Shapes;
 
+import domain.model.DomainException;
+
 /**
  * Created by yanice on 07/06/2017.
  */
@@ -10,6 +12,8 @@ public class Rechthoek extends Vorm{
 
     public Rechthoek(Punt linkerBovenhoek, int breedte, int hoogte) {
         setLinkerBovenHoek(linkerBovenhoek);
+        setHoogte(hoogte);
+        setBreedte(breedte);
     }
 
 
@@ -42,12 +46,26 @@ public class Rechthoek extends Vorm{
     public boolean equals(Object o) {
         Rechthoek r = (Rechthoek) o;
         if(r == null){
-            throw new NullPointerException("Dit object is niet van het type Rechthoek");
+            return false;
         }
         if(r.getBreedte() == breedte && r.getHoogte() == hoogte && r.getLinkerBovenhoek().equals(linkerBovenhoek)){
             return true;
         }else{
             return false;
         }
+    }
+
+    public void setHoogte(int hoogte) {
+        if(hoogte<= 0){
+            throw new DomainException("De hoogte van een driehoek moet strict positief zijn.");
+        }
+        this.hoogte = hoogte;
+    }
+
+    public void setBreedte(int breedte) {
+        if(breedte<= 0){
+            throw new DomainException("De breedte van een driehoek moet strict positief zijn.");
+        }
+        this.breedte = breedte;
     }
 }

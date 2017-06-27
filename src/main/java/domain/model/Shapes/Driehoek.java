@@ -33,7 +33,7 @@ public class Driehoek extends Vorm{
     public boolean equals(Object o) {
         Driehoek d = (Driehoek) o;
         if(d == null){
-            throw new NullPointerException("Dit object is niet van het type Driehoek");
+            return false;
         }
         if(hoekPunt3.equals(d.hoekPunt3) && d.hoekPunt2.equals(hoekPunt2) && d.hoekPunt1.equals(hoekPunt3)){
             return true;
