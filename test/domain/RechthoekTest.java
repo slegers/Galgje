@@ -30,7 +30,7 @@ public class RechthoekTest {
 		assertEquals(breedte, rechthoek.getBreedte());
 	}
 	
-	@Test (expected = DomainException.class)
+	@Test (expected = NullPointerException.class)
 	public void Rechthoek_Moet_exception_gooien_als_linkerbovenhoek_null()  {
 		new Rechthoek(null, breedte, hoogte);
 	}

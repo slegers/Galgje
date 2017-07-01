@@ -5,6 +5,11 @@ package domain.model.Shapes;
  */
 public abstract class Vorm {
 
+    private Omhullende omhullende;
+
+    public Vorm(){
+    }
+
     @Override
     public abstract String toString();
     @Override

@@ -9,6 +9,7 @@ public class Rechthoek extends Vorm{
     private int hoogte;
     private int breedte;
     private Punt linkerBovenhoek;
+    private Omhullende omhullende;
 
     public Rechthoek(Punt linkerBovenhoek, int breedte, int hoogte) {
         setLinkerBovenHoek(linkerBovenhoek);
@@ -39,7 +40,8 @@ public class Rechthoek extends Vorm{
 
     @Override
     public String toString() {
-        return "Rechthoek: positie: " + linkerBovenhoek.toString() + "- breedte: " + breedte +" - hoogte: " + hoogte;
+        return "Rechthoek: positie: " + linkerBovenhoek.toString() + "- breedte: " + breedte +" - hoogte: " + hoogte +
+                "\n" + getOmHullende().toString();
     }
 
     @Override
@@ -67,5 +69,9 @@ public class Rechthoek extends Vorm{
             throw new DomainException("De breedte van een driehoek moet strict positief zijn.");
         }
         this.breedte = breedte;
+    }
+
+    public Omhullende getOmHullende() {
+        return omhullende;
     }
 }

@@ -1,5 +1,7 @@
 package domain.model.Shapes;
 
+import domain.model.DomainException;
+
 /**
  * Created by yanice on 07/06/2017.
  */
@@ -11,7 +13,20 @@ public class Driehoek extends Vorm{
     }
 
     private void setPunten(Punt p1, Punt p2, Punt p3) {
+        if(canHaveAsPunten(p1,p2,p3)){
+            hoekPunt1 = p1;
+            hoekPunt2 = p2;
+            hoekPunt3 = p3;
+        }
+    }
 
+    public boolean canHaveAsPunten(Punt p1, Punt p2, Punt p3) {
+        if(p1 == null || p2 == null || p3 == null){
+            throw new DomainException("Een hoekpunt mag niet gelijk zijn aan null van een driehoek.");
+        }
+        if((p2.getX()-p1.getX())*(p3.getY()-p1.getY()) == (p3.getX()-p1.getX())*(p2.getY()-p1.getY())){
+            return true;
+        }return false;
     }
 
     public Punt getHoekPunt1() {
