@@ -25,8 +25,10 @@ public class Driehoek extends Vorm{
             throw new DomainException("Een hoekpunt mag niet gelijk zijn aan null van een driehoek.");
         }
         if((p2.getX()-p1.getX())*(p3.getY()-p1.getY()) == (p3.getX()-p1.getX())*(p2.getY()-p1.getY())){
+            return false;
+        }else{
             return true;
-        }return false;
+        }
     }
 
     public Punt getHoekPunt1() {
@@ -50,7 +52,7 @@ public class Driehoek extends Vorm{
         if(d == null){
             return false;
         }
-        if(hoekPunt3.equals(d.hoekPunt3) && d.hoekPunt2.equals(hoekPunt2) && d.hoekPunt1.equals(hoekPunt3)){
+        if(hoekPunt3.equals(d.hoekPunt3) && hoekPunt2.equals(d.hoekPunt2) && hoekPunt1.equals(d.hoekPunt1)){
             return true;
         }else{
             return false;

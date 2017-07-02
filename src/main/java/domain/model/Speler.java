@@ -6,6 +6,7 @@ import java.util.Objects;
  * Created by yanice on 07/06/2017.
  */
 public class Speler {
+
     private String naam;
     private int score;
     public Speler(String naam){

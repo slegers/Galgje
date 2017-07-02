@@ -43,7 +43,7 @@ public class Omhullende {
         this.breedte = breedte;
     }
 
-    private boolean isVallidsize(int groote) {
+    public boolean isVallidsize(int groote) {
         if(groote < 0){
             return false;
         }
@@ -72,10 +72,12 @@ public class Omhullende {
     public int getMaxY() {
         return getLinkerBovenhoek().getY() + hoogte;
     }
+
     @Override
     public String toString(){
         return "Omhullende: " + linkerBovenhoek.toString() + " - " + breedte + " - " + hoogte;
     }
+
     @Override
     public boolean equals(Object o){
         Omhullende om = (Omhullende) o;

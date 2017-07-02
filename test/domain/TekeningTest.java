@@ -4,7 +4,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import domain.model.DomainException;
 import domain.model.Shapes.*;
+import domain.model.Tekening;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -37,12 +39,12 @@ public class TekeningTest {
 		assertEquals(0, huis.getAantalVormen());
 	}
 
-	@Test (expected = IllegalArgumentException.class)
+	@Test (expected = DomainException.class)
 	public void Tekening_moet_exception_gooien_als_naam_null() {
 		new Tekening(null);
 	}
 
-	@Test (expected = IllegalArgumentException.class)
+	@Test (expected = DomainException.class)
 	public void Tekening_moet_exception_gooien_als_naam_leeg() {
 		new Tekening("");
 	}
