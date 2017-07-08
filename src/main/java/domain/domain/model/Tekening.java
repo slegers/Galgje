@@ -15,7 +15,7 @@ public class Tekening {
     private static final int MAX_Y=399;
 
     private String naam;
-    private ArrayList<Vorm> vormen = new ArrayList();
+    private ArrayList<Vorm> vormen = new ArrayList<>();
 
     public Tekening(String naam) {
         setNaam(naam);
@@ -70,7 +70,6 @@ public class Tekening {
     }
 
     public void setNaam(String naam) {
-        //noinspection Since15
         if(naam == null || naam.trim().isEmpty()){
             throw new DomainException("De naam van een tekening mag niet leeg of null zijn.");
         }

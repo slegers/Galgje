@@ -8,11 +8,12 @@ import java.util.ArrayList;
 public class HangmanGame {
     private Speler huidigeSpeler;
     private String woord;
-    private ArrayList<String> geraden = new ArrayList();
+    private ArrayList<String> geraden = new ArrayList<>();
 
     public HangmanGame(){
 
     }
+
     public void setHuidigeSpeler(Speler s){
         if(s == null){
             throw  new DomainException("De huidige speler kan niet null zijn.");

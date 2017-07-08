@@ -1,28 +1,23 @@
 package ui.controller;
 
-import domain.domain.model.HangmanGame;
+
+import domain.domain.model.*;
 import domain.domain.model.Shapes.LijnStuk;
-import domain.domain.model.Shapes.Punt;
-import domain.domain.model.Shapes.Rechthoek;
+import domain.domain.model.Shapes.*;
 import domain.domain.model.Speler;
-import ui.view.PictonaryUi;
-import ui.view.creators.CirkelCreator;
-import ui.view.creators.LijnStukCreator;
-import ui.view.creators.PuntCreator;
-import ui.view.creators.RechthoekCreator;
+import ui.view.*;
+import ui.view.creators.*;
 
 /**
  * Created by yanice on 10/06/2017.
  */
 public class Controller {
-    PictonaryUi ui;
-    HangmanGame game;
-
+    private PictionaryUi ui;
+    private HangmanGame game;
     public Controller(){
         game = new HangmanGame();
-        ui = new PictonaryUi(this);
+        ui = new PictionaryUi(this);
         createPlayer();
-        showMenu();
     }
 
     private void showMenu() {
@@ -60,4 +55,6 @@ public class Controller {
         LijnStuk l = lc.create();
         lc.show();
     }
+
+
 }
