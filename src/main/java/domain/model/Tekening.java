@@ -30,14 +30,36 @@ public class Tekening {
 
     public boolean bevat(Vorm vorm) {
         for(Vorm v : vormen){
-            if(vorm.equals(v)){
-                System.out.print(vorm.toString());
-                return true;
+            try{
+                if(vorm.equals(v)){
+                    return true;
+                }
+            }catch (ClassCastException c){
+
             }
         }
         return false;
     }
-
+    @Override
+    public String toString(){
+        return "";
+    }
+    @Override
+    public boolean equals(Object o){
+        Tekening t = (Tekening) o;
+        if(t == null || !naam.equals(t.getNaam())){
+            return false;
+        }
+        if(t.getAantalVormen() != this.getAantalVormen()){
+            return false;
+        }
+        for(int i = 0; i < getAantalVormen();i++){
+            if(!t.vormen.get(i).equals(this.vormen.get(i))){
+                return false;
+            }
+        }
+        return true;
+    }
     public void verwijder(Vorm v) {
         vormen.remove(v);
     }
