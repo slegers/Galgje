@@ -1,10 +1,10 @@
 package ui.controller;
 
-import domain.model.HangmanGame;
-import domain.model.Shapes.LijnStuk;
-import domain.model.Shapes.Punt;
-import domain.model.Shapes.Rechthoek;
-import domain.model.Speler;
+import domain.domain.model.HangmanGame;
+import domain.domain.model.Shapes.LijnStuk;
+import domain.domain.model.Shapes.Punt;
+import domain.domain.model.Shapes.Rechthoek;
+import domain.domain.model.Speler;
 import ui.view.PictonaryUi;
 import ui.view.creators.CirkelCreator;
 import ui.view.creators.LijnStukCreator;

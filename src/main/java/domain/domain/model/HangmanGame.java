@@ -1,4 +1,4 @@
-package domain.model;
+package domain.domain.model;
 
 import java.util.ArrayList;
 
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class HangmanGame {
     private Speler huidigeSpeler;
     private String woord;
-    private ArrayList<String> geraden = new ArrayList<>();
+    private ArrayList<String> geraden = new ArrayList();
 
     public HangmanGame(){
 

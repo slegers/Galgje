@@ -1,6 +1,4 @@
-package domain.model;
-
-import java.util.Objects;
+package domain.domain.model;
 
 /**
  * Created by yanice on 07/06/2017.

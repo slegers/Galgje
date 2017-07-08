@@ -1,4 +1,4 @@
-package domain.model;
+package domain.domain.model;
 
 /**
  * Created by yanice on 07/06/2017.

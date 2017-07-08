@@ -1,12 +1,13 @@
-package domain.model;
+package domain.domain.model;
 
-import domain.model.Shapes.Vorm;
+import domain.domain.model.Shapes.Vorm;
 
 import java.util.ArrayList;
 
 /**
  * Created by yanice on 08/06/2017.
  */
+@SuppressWarnings("ALL")
 public class Tekening {
     private static final int MIN_X = 0;
     private static final int MIN_Y = 0;
@@ -14,7 +15,7 @@ public class Tekening {
     private static final int MAX_Y=399;
 
     private String naam;
-    private ArrayList<Vorm> vormen = new ArrayList<>();
+    private ArrayList<Vorm> vormen = new ArrayList();
 
     public Tekening(String naam) {
         setNaam(naam);
@@ -69,6 +70,7 @@ public class Tekening {
     }
 
     public void setNaam(String naam) {
+        //noinspection Since15
         if(naam == null || naam.trim().isEmpty()){
             throw new DomainException("De naam van een tekening mag niet leeg of null zijn.");
         }

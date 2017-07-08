@@ -1,9 +1,8 @@
 package ui.view;
 
-import com.sun.codemodel.internal.JOp;
-import domain.model.DomainException;
-import domain.model.Shapes.Punt;
-import domain.model.Speler;
+import domain.domain.model.DomainException;
+import domain.domain.model.Shapes.Punt;
+import domain.domain.model.Speler;
 import ui.controller.Controller;
 
 import javax.swing.*;
@@ -56,6 +55,7 @@ public class PictonaryUi {
 
     public void createPlayer() {
         String naam = JOptionPane.showInputDialog(null,"Wat is de speler zijn naam.");
+        //noinspection Since15
         if(naam.trim().isEmpty()){
             createPlayer();
         }else{

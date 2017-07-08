@@ -1,9 +1,8 @@
 package ui.view.creators;
 
-import domain.model.DomainException;
-import domain.model.Shapes.LijnStuk;
-import domain.model.Shapes.Punt;
-import jdk.nashorn.internal.scripts.JO;
+import domain.domain.model.DomainException;
+import domain.domain.model.Shapes.LijnStuk;
+import domain.domain.model.Shapes.Punt;
 
 import javax.swing.*;
 

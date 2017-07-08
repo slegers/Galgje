@@ -1,4 +1,4 @@
-package domain.db;
+package domain.domain.db;
 
 /**
  * Created by yanice on 07/06/2017.

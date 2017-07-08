@@ -1,7 +1,6 @@
 package ui.view.creators;
 
-import domain.model.Shapes.Punt;
-import jdk.nashorn.internal.scripts.JO;
+import domain.domain.model.Shapes.Punt;
 
 import javax.swing.*;
 

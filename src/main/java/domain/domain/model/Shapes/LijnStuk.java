@@ -1,6 +1,6 @@
-package domain.model.Shapes;
+package domain.domain.model.Shapes;
 
-import domain.model.DomainException;
+import domain.domain.model.DomainException;
 
 /**
  * Created by yanice on 07/06/2017.

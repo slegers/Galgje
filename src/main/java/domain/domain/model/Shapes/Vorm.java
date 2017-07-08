@@ -1,4 +1,4 @@
-package domain.model.Shapes;
+package domain.domain.model.Shapes;
 
 /**
  * Created by yanice on 07/06/2017.

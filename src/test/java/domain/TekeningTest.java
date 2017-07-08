@@ -4,9 +4,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import domain.model.DomainException;
-import domain.model.Shapes.*;
-import domain.model.Tekening;
+import domain.domain.model.DomainException;
+import domain.domain.model.Shapes.*;
+import domain.domain.model.Tekening;
 import org.junit.Before;
 import org.junit.Test;
 
