@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import domain.domain.model.Shapes.LijnStuk;
-import domain.domain.model.Shapes.Punt;
+import domain.model.Shapes.LijnStuk;
+import domain.model.Shapes.Punt;
 import org.junit.Test;
 
 public class LijnStukTest {

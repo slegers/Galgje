@@ -1,7 +1,8 @@
 package ui.view;
 
-import domain.domain.model.DomainException;
-import domain.domain.model.Speler;
+
+import domain.model.DomainException;
+import domain.model.Speler;
 import ui.controller.Controller;
 
 import javax.swing.*;
@@ -10,8 +11,6 @@ import javax.swing.*;
  * Created by yanice on 08/07/2017.
  */
 public class PictionaryUi {
-
-
         private Controller controller;
 
         public PictionaryUi(Controller c){

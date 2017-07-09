@@ -1,10 +1,10 @@
 package ui.controller;
 
 
-import domain.domain.model.*;
-import domain.domain.model.Shapes.LijnStuk;
-import domain.domain.model.Shapes.*;
-import domain.domain.model.Speler;
+import domain.model.*;
+import domain.model.Shapes.LijnStuk;
+import domain.model.Shapes.*;
+import domain.model.Speler;
 import ui.view.*;
 import ui.view.creators.*;
 

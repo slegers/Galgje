@@ -2,7 +2,7 @@ package domain;
 
 import static org.junit.Assert.*;
 
-import domain.domain.model.Shapes.Punt;
+import domain.model.Shapes.Punt;
 import org.junit.Before;
 import org.junit.Test;
 

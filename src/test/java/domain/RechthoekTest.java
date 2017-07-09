@@ -2,9 +2,9 @@ package domain;
 
 import static org.junit.Assert.*;
 
-import domain.domain.model.DomainException;
-import domain.domain.model.Shapes.Punt;
-import domain.domain.model.Shapes.Rechthoek;
+import domain.model.DomainException;
+import domain.model.Shapes.Punt;
+import domain.model.Shapes.Rechthoek;
 import org.junit.Before;
 import org.junit.Test;
 

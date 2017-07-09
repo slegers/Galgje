@@ -1,6 +1,6 @@
 package ui.view.creators;
 
-import domain.domain.model.Shapes.Punt;
+import domain.model.Shapes.Punt;
 
 import javax.swing.*;
 

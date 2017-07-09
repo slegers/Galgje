@@ -1,0 +1,9 @@
+domain/AllTests.class
+domain/DriehoekTest.class
+domain/CirkelTest.class
+domain/RechthoekTest.class
+domain/PuntTest.class
+domain/LijnStukTest.class
+domain/SpelerTest.class
+domain/OmhullendeTest.class
+domain/TekeningTest.class

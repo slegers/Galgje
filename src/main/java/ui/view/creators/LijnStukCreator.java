@@ -1,8 +1,8 @@
 package ui.view.creators;
 
-import domain.domain.model.DomainException;
-import domain.domain.model.Shapes.LijnStuk;
-import domain.domain.model.Shapes.Punt;
+
+import domain.model.DomainException;
+import domain.model.Shapes.*;
 
 import javax.swing.*;
 

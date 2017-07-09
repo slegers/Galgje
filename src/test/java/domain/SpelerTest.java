@@ -2,8 +2,8 @@ package domain;
 
 import static org.junit.Assert.*;
 
-import domain.domain.model.DomainException;
-import domain.domain.model.Speler;
+import domain.model.DomainException;
+import domain.model.Speler;
 import org.junit.Before;
 import org.junit.Test;
 

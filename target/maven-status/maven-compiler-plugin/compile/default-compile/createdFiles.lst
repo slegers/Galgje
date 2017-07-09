@@ -1,0 +1,6 @@
+domain/model/Speler.class
+domain/model/Shapes/Punt.class
+domain/model/Tekening.class
+domain/model/Shapes/Vorm.class
+domain/model/HangmanGame.class
+domain/model/Shapes/Omhullende.class

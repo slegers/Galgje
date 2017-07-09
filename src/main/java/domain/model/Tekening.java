@@ -1,6 +1,7 @@
-package domain.domain.model;
+package domain.model;
 
-import domain.domain.model.Shapes.Vorm;
+
+import domain.model.Shapes.Vorm;
 
 import java.util.ArrayList;
 
@@ -15,7 +16,7 @@ public class Tekening {
     private static final int MAX_Y=399;
 
     private String naam;
-    private ArrayList<Vorm> vormen = new ArrayList<>();
+    private ArrayList<Vorm> vormen = new ArrayList();
 
     public Tekening(String naam) {
         setNaam(naam);

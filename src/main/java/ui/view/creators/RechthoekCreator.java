@@ -1,7 +1,6 @@
 package ui.view.creators;
 
-import domain.domain.model.Shapes.Punt;
-import domain.domain.model.Shapes.Rechthoek;
+import domain.model.Shapes.*;
 
 import javax.swing.*;
 

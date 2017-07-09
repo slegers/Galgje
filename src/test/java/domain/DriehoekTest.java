@@ -2,9 +2,9 @@ package domain;
 
 import static org.junit.Assert.*;
 
-import domain.domain.model.DomainException;
-import domain.domain.model.Shapes.Driehoek;
-import domain.domain.model.Shapes.Punt;
+import domain.model.DomainException;
+import domain.model.Shapes.Driehoek;
+import domain.model.Shapes.Punt;
 import org.junit.Test;
 
 public class DriehoekTest {

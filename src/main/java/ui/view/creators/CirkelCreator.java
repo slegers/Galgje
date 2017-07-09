@@ -1,7 +1,7 @@
 package ui.view.creators;
 
-import domain.domain.model.Shapes.Cirkel;
-import domain.domain.model.Shapes.Punt;
+import domain.model.Shapes.Cirkel;
+import domain.model.Shapes.Punt;
 
 import javax.swing.*;
 
