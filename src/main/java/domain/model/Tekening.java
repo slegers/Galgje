@@ -44,7 +44,11 @@ public class Tekening {
     }
     @Override
     public String toString(){
-        return "";
+        String t =  "Tekening met de naam " + this.naam + " bestaat uit " +vormen.size() + " vormen.\n";
+        for(Vorm v : vormen){
+            t += v.vorm() + " " + v.toString() + "\n";
+        }
+        return t;
     }
     @Override
     public boolean equals(Object o){
@@ -56,7 +60,7 @@ public class Tekening {
             return false;
         }
         for(int i = 0; i < getAantalVormen();i++){
-            if(!t.vormen.get(i).equals(this.vormen.get(i))){
+            if(!t.getVormen().get(i).equals(this.getVormen().get(i))){
                 return false;
             }
         }
@@ -75,5 +79,9 @@ public class Tekening {
             throw new DomainException("De naam van een tekening mag niet leeg of null zijn.");
         }
         this.naam = naam;
+    }
+
+    public ArrayList<Vorm> getVormen() {
+        return vormen;
     }
 }

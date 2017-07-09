@@ -24,7 +24,7 @@ public class CirkelCreator {
     public Cirkel cirkelCreator(){
         PuntCreator pc = new PuntCreator();
         askRadius();
-        c=  new Cirkel(pc.create(),radius);
+        c =  new Cirkel(pc.create(),radius);
         return c;
     }
 

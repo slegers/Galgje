@@ -13,13 +13,24 @@ public class Punt extends Vorm{
     }
 
     @Override
+    public String vorm() {
+        return "Punt";
+    }
+
+    @Override
     public String toString() {
         return "(" + getX() + ", " + getY() + ")";
     }
 
     @Override
     public boolean equals(Object o) {
-        Punt p = (Punt) o;
+        Punt p = null;
+        try{
+            p = (Punt) o;
+        }catch (ClassCastException c){
+            return false;
+        }
+
         if (p == null) {
             return false;
         } else if (this.x == p.getX() && p.getY() == this.y) {

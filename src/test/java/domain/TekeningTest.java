@@ -72,7 +72,7 @@ public class TekeningTest {
 		Tekening huis = createHuisZonderShouw();
 		assertFalse(huis.equals(null));
 	}
-	/*
+
 	@Test
 	public void equals_moet_false_teruggeven_als_parameter_tekening_is_met_verschillend_aantal_vormen(){
 		Tekening huis = createHuisZonderShouw();
@@ -95,15 +95,15 @@ public class TekeningTest {
 		huisMetSchouwZonderDeur.voegToe(deur);
 		assertTrue(huis.equals(huisMetSchouwZonderDeur));
 	}
-	/*
+
 	@Test
-	public void equals_moet_true_teruggeven_alsparameter_tekening_is_met_zelfde_aantal_vormen_zelfde_volgorde(){
+	public void equals_moet_true_teruggeven_als_parameter_tekening_is_met_zelfde_aantal_vormen_zelfde_volgorde_2(){
 		Tekening huis = createHuisZonderShouw();
 		Tekening huisMetSchouw = createHuisMetSchouw();
 		huisMetSchouw.verwijder(schouwNietInTekening);
 		assertTrue(huis.equals(huisMetSchouw));
 	}
-	*/
+*/
 
 
 	public Tekening createHuisMetSchouw() {

@@ -46,13 +46,23 @@ public class LijnStuk extends Vorm {
     }
 
     @Override
+    public String vorm() {
+        return "Lijnstuk";
+    }
+
+    @Override
     public String toString(){
         return "Lijn: startpunt: " + startPunt.toString() + "- eindpunt: " + eindPunt.toString();
     }
 
     @Override
     public boolean equals(Object o) {
-        LijnStuk l = (LijnStuk) o;
+        LijnStuk l = null;
+        try{
+            l = (LijnStuk) o;
+        }catch (ClassCastException c){
+            return false;
+        }
         if(l == null){
             return false;
         }

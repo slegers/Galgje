@@ -21,13 +21,24 @@ public class Cirkel extends Vorm {
     }
 
     @Override
+    public String vorm() {
+        return "Cirkel";
+    }
+
+    @Override
     public String toString() {
         return "Middelpunt: " + middelpunt.toString() + " Radius: " + radius;
     }
 
     @Override
     public boolean equals(Object o) {
-        Cirkel c = (Cirkel) o;
+       Cirkel c = null;
+        try{
+             c = (Cirkel) o;
+        }catch (ClassCastException e) {
+            return false;
+        }
+
         if(c == null){
            return false;
         }

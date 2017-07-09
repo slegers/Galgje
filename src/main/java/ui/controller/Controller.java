@@ -18,10 +18,14 @@ public class Controller {
         game = new HangmanGame();
         ui = new PictionaryUi(this);
         createPlayer();
+        ui.createTekening();
+        showMainMenu();
     }
-
+    public void showMainMenu(){
+        ui.showMainMenu();
+    }
     private void showMenu() {
-        ui.showMenu();
+        ui.showMenuCreateVorm();
     }
 
     public void createPlayer() {
@@ -36,25 +40,32 @@ public class Controller {
         PuntCreator c = new PuntCreator();
         Punt p = c.create();
         c.show();
+        ui.voegToe(p);
     }
 
     public void createCirkel() {
         CirkelCreator cc = new CirkelCreator();
-        cc.cirkelCreator();
+        ui.voegToe(cc.cirkelCreator());
         cc.show();
     }
 
     public void createRechthoek() {
         RechthoekCreator rc = new RechthoekCreator();
-        Rechthoek r = rc.create();
+        ui.voegToe(rc.create());
+
         rc.show();
     }
 
     public void createLijnstuk() {
         LijnStukCreator lc = new LijnStukCreator();
-        LijnStuk l = lc.create();
+        ui.voegToe(lc.create());
         lc.show();
     }
 
 
+    public void createDriehoek() {
+        DriehoekCreator dc = new DriehoekCreator();
+        ui.voegToe(dc.createDrieHoek());
+        dc.show();
+    }
 }

@@ -2,7 +2,11 @@ package ui.view;
 
 
 import domain.model.DomainException;
+import domain.model.Shapes.Punt;
+import domain.model.Shapes.Vorm;
 import domain.model.Speler;
+import domain.model.Tekening;
+import jdk.nashorn.internal.scripts.JO;
 import ui.controller.Controller;
 
 import javax.swing.*;
@@ -12,35 +16,9 @@ import javax.swing.*;
  */
 public class PictionaryUi {
         private Controller controller;
-
+        private Tekening tekening;
         public PictionaryUi(Controller c){
             setController(c);
-        }
-
-        public void ShowMenu(){
-            String choice = JOptionPane.showInputDialog(null,"1. Maak een punt");
-            try{
-                int keuze = Integer.parseInt(choice);
-                menuHandler(keuze);
-            }catch (NumberFormatException e){
-                JOptionPane.showMessageDialog(null,"Whoops daar ging iets mis! \n " +
-                        "Probeer het nog eens.");
-            }
-        }
-
-        private void menuHandler(int keuze) {
-            switch (keuze){
-                case 1:
-                    createPunt();
-                    break;
-                default:
-                    ShowMenu();
-                    break;
-            }
-        }
-
-        private void createPunt() {
-
         }
 
         public void setController(Controller controller) {
@@ -58,8 +36,8 @@ public class PictionaryUi {
             }
         }
 
-        public void showMenu(){
-            Object[] shapes = {"Punt", "Cirkel","Driehoek", "Rechthoek", "Lijnstuk","Tekening" };
+        public void showMenuCreateVorm(){
+            Object[] shapes = {"Punt", "Cirkel","Driehoek", "Rechthoek", "Lijnstuk","Toon Tekening" };
             Object keuze = JOptionPane.showInputDialog(null, "Wat wilt u tekenen", "input", JOptionPane.INFORMATION_MESSAGE, null, shapes, null);
             switch (keuze.toString()){
                 case "Punt":
@@ -69,6 +47,7 @@ public class PictionaryUi {
                     controller.createCirkel();
                     break;
                 case "Driehoek":
+                    controller.createDriehoek();
                     break;
                 case "Rechthoek":
                     controller.createRechthoek();
@@ -78,10 +57,47 @@ public class PictionaryUi {
                     break;
                 default:
                     JOptionPane.showMessageDialog(null,"Whoops hier ging hies mis.");
-                    showMenu();
+                    showMenuCreateVorm();
                     break;
             }
         }
 
 
+    public void createTekening() {
+            String naam = JOptionPane.showInputDialog(null,"Geef de tekening een naam.");
+            if(naam.trim().isEmpty()){
+                createTekening();
+            }else{
+                tekening = new Tekening(naam);
+            }
+    }
+
+    public void voegToe(Vorm v) {
+            tekening.voegToe(v);
+    }
+
+    public void showMainMenu() {
+        String keuze = JOptionPane.showInputDialog("Wat wil je doen? \n" +
+                "\n"
+            + "1. Vorm  toevoegen \n" +
+            "2. Toon tekening \n" +
+            "0. Stop");
+
+        switch (keuze) {
+            case "1":
+                showMenuCreateVorm();
+                break;
+            case "2":
+                JOptionPane.showMessageDialog(null, tekening.toString());
+                break;
+            case "0":
+                System.exit(0);
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "Whoop hier ging iets mis. Probeer opniew");
+                showMainMenu();
+                break;
+        }
+        showMainMenu();
+    }
 }

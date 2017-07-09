@@ -79,7 +79,13 @@ public class Omhullende {
 
     @Override
     public boolean equals(Object o){
-        Omhullende om = (Omhullende) o;
+        Omhullende om = null;
+        try{
+            om = (Omhullende) o;
+        }catch (ClassCastException c){
+            return false;
+        }
+
         if(om == null){
             return false;
         }else{

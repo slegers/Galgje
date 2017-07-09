@@ -42,13 +42,23 @@ public class Driehoek extends Vorm{
     }
 
     @Override
+    public String vorm() {
+        return "Driehoek";
+    }
+
+    @Override
     public String toString() {
         return "Driehoek:  hoekpunt1: " + hoekPunt1.toString() +" - hoekpunt2: " + hoekPunt2.toString() + "- hoekpunt3: " + hoekPunt3.toString();
     }
 
     @Override
     public boolean equals(Object o) {
-        Driehoek d = (Driehoek) o;
+        Driehoek d = null;
+        try{
+            d = (Driehoek) o;
+        }catch (ClassCastException c){
+            return false;
+        }
         if(d == null){
             return false;
         }

@@ -39,6 +39,11 @@ public class Rechthoek extends Vorm{
     }
 
     @Override
+    public String vorm() {
+        return "Rechthoek";
+    }
+
+    @Override
     public String toString() {
         return "Rechthoek: positie: " + linkerBovenhoek.toString() + "- breedte: " + breedte +" - hoogte: " + hoogte +
                 "\n" + getOmHullende().toString();
@@ -46,7 +51,13 @@ public class Rechthoek extends Vorm{
 
     @Override
     public boolean equals(Object o) {
-        Rechthoek r = (Rechthoek) o;
+        Rechthoek r = null;
+        try{
+             r = (Rechthoek) o;
+        }catch (ClassCastException c){
+            return false;
+        }
+
         if(r == null){
             return false;
         }

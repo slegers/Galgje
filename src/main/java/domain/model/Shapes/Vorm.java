@@ -10,6 +10,7 @@ public abstract class Vorm {
     public Vorm(){
     }
 
+    public abstract String vorm();
     @Override
     public abstract String toString();
     @Override
