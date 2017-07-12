@@ -40,6 +40,11 @@ public class Punt extends Vorm{
         }
     }
 
+    @Override
+    public Omhullende getOmhullende() {
+        return null;
+    }
+
     public int getX() {
         return x;
     }

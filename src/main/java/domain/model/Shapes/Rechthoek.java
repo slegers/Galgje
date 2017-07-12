@@ -15,9 +15,8 @@ public class Rechthoek extends Vorm{
         setLinkerBovenHoek(linkerBovenhoek);
         setHoogte(hoogte);
         setBreedte(breedte);
+        setOmhullende();
     }
-
-
 
     public int getHoogte() {
         return hoogte;
@@ -39,6 +38,11 @@ public class Rechthoek extends Vorm{
     }
 
     @Override
+    protected void setOmhullende() {
+        setOmhullende(new Omhullende(linkerBovenhoek,breedte,hoogte));
+    }
+
+    @Override
     public String vorm() {
         return "Rechthoek";
     }
@@ -46,7 +50,7 @@ public class Rechthoek extends Vorm{
     @Override
     public String toString() {
         return "Rechthoek: positie: " + linkerBovenhoek.toString() + "- breedte: " + breedte +" - hoogte: " + hoogte +
-                "\n" + getOmHullende().toString();
+                "\n" + getOmhullende().toString();
     }
 
     @Override
@@ -68,21 +72,23 @@ public class Rechthoek extends Vorm{
         }
     }
 
+    @Override
+    public Omhullende getOmhullende() {
+        return omhullende;
+    }
+
     public void setHoogte(int hoogte) {
         if(hoogte<= 0){
-            throw new DomainException("De hoogte van een driehoek moet strict positief zijn.");
+            throw new DomainException("De hoogte van een rechthoek moet strict positief zijn.");
         }
         this.hoogte = hoogte;
     }
 
     public void setBreedte(int breedte) {
         if(breedte<= 0){
-            throw new DomainException("De breedte van een driehoek moet strict positief zijn.");
+            throw new DomainException("De breedte van een rechthoek moet strict positief zijn.");
         }
         this.breedte = breedte;
     }
 
-    public Omhullende getOmHullende() {
-        return omhullende;
-    }
 }

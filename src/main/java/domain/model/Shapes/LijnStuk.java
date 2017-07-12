@@ -11,6 +11,7 @@ public class LijnStuk extends Vorm {
 
     public LijnStuk(Punt p1, Punt p2){
         setPunten(p1,p2);
+        setOmhullende();
     }
 
     private void setPunten(Punt p1, Punt p2) {
@@ -70,6 +71,14 @@ public class LijnStuk extends Vorm {
             return true;
         }else{
             return false;
+        }
+    }
+    public void setOmhullende() {
+        if(startPunt.getY() < eindPunt.getY()){
+            setOmhullende(new Omhullende(startPunt,eindPunt.getX()-startPunt.getX(),eindPunt.getY()-startPunt.getY()));
+        }else{
+            setOmhullende(new Omhullende(eindPunt,startPunt.getX()-eindPunt.getX(),startPunt.getY()-eindPunt.getY()));
+
         }
     }
 }

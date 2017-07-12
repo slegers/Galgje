@@ -86,7 +86,6 @@ public class TekeningTest {
 		Tekening huisMetSchouwZonderDeur = createHuisMetSchouwZonderDeur();
 		assertFalse(huis.equals(huisMetSchouwZonderDeur));
 	}
-/*
 	@Test
 	public void equals_moet_true_teruggeven_als_parameter_tekening_is_met_zelfde_aantal_vormen_andere_volgorde(){
 		Tekening huis = createHuisZonderShouw();
@@ -103,7 +102,7 @@ public class TekeningTest {
 		huisMetSchouw.verwijder(schouwNietInTekening);
 		assertTrue(huis.equals(huisMetSchouw));
 	}
-*/
+
 
 
 	public Tekening createHuisMetSchouw() {

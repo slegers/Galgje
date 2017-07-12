@@ -10,6 +10,7 @@ public class Driehoek extends Vorm{
 
     public Driehoek(Punt p1, Punt p2, Punt p3){
         setPunten(p1,p2,p3);
+        setOmhullende();
     }
 
     private void setPunten(Punt p1, Punt p2, Punt p3) {
@@ -39,6 +40,11 @@ public class Driehoek extends Vorm{
     }
     public Punt getHoekPunt3() {
         return hoekPunt3;
+    }
+
+    @Override
+    protected void setOmhullende() {
+
     }
 
     @Override

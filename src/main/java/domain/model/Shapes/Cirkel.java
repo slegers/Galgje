@@ -10,6 +10,7 @@ public class Cirkel extends Vorm {
     public Cirkel(Punt m, int radius){
         setRadius(radius);
         setMiddelPunt(m);
+        setOmhullende();
     }
 
     public void setRadius(int radius) {
@@ -18,6 +19,11 @@ public class Cirkel extends Vorm {
 
     public void setMiddelPunt(Punt middelPunt) {
         this.middelpunt = middelPunt;
+    }
+
+    @Override
+    protected void setOmhullende() {
+        setOmhullende(new Omhullende(new Punt(middelpunt.getX()-radius,middelpunt.getY()-radius),2*radius,2*radius));
     }
 
     @Override
@@ -47,6 +53,11 @@ public class Cirkel extends Vorm {
         }else{
             return false;
         }
+    }
+
+    @Override
+    public Omhullende getOmhullende() {
+        return null;
     }
 
     public int getRadius() {
