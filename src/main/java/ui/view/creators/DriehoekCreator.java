@@ -5,6 +5,8 @@ import domain.model.Shapes.Driehoek;
 import domain.model.Shapes.Punt;
 import ui.controller.Controller;
 
+import javax.swing.*;
+
 /**
  * Created by yanice on 09/07/2017.
  */
@@ -21,6 +23,7 @@ public class DriehoekCreator {
            d = new Driehoek(p1,p2,p3);
            return d;
        }catch (DomainException e){
+           JOptionPane.showMessageDialog(null,e.getMessage());
            return createDrieHoek();
        }
    }

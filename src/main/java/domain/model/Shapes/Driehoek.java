@@ -47,7 +47,8 @@ public class Driehoek extends Vorm{
     }
 
     @Override
-    protected void setOmhullende() {
+    protected void
+    setOmhullende() {
         int x = calculateMinXOmhullende();
         int y = calculateMinYOmhullende();
         Punt p = new Punt(x,y);
