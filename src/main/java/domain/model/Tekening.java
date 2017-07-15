@@ -81,6 +81,7 @@ public class Tekening implements Drawable{
     }
 
     private boolean canHaveAsVorm(Vorm v) {
+        System.out.print(v.vorm());
         if(v.getOmhullende().getMinY() < MIN_Y || v.getOmhullende().getMinX()< MIN_X || v.getOmhullende().getMaxX() > MAX_X || v.getOmhullende().getMaxX() > MAX_Y){
             return false;
         }
@@ -100,6 +101,8 @@ public class Tekening implements Drawable{
 
     @Override
     public void teken(Graphics graphics) {
-
+        for(Vorm v : vormen){
+            v.teken(graphics);
+        }
     }
 }

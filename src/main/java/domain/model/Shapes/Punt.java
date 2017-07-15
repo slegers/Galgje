@@ -14,7 +14,7 @@ public class Punt extends Vorm{
 
     @Override
     protected void setOmhullende() {
-
+        setOmhullende(new Omhullende(this,0,0));
     }
 
     @Override
@@ -44,12 +44,6 @@ public class Punt extends Vorm{
             return false;
         }
     }
-
-    @Override
-    public Omhullende getOmhullende() {
-        return null;
-    }
-
     public int getX() {
         return x;
     }
@@ -58,8 +52,4 @@ public class Punt extends Vorm{
         return y;
     }
 
-    @Override
-    public void teken(Graphics graphics) {
-
-    }
 }

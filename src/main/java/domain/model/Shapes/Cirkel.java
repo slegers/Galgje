@@ -57,11 +57,6 @@ public class Cirkel extends Vorm {
         }
     }
 
-    @Override
-    public Omhullende getOmhullende() {
-        return null;
-    }
-
     public int getRadius() {
         return radius;
     }
@@ -70,8 +65,4 @@ public class Cirkel extends Vorm {
         return middelpunt;
     }
 
-    @Override
-    public void teken(Graphics graphics) {
-
-    }
 }

@@ -130,8 +130,5 @@ public class Driehoek extends Vorm{
         }
     }
 
-    @Override
-    public void teken(Graphics graphics) {
 
-    }
 }

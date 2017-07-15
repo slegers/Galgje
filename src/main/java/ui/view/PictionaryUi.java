@@ -88,8 +88,9 @@ public class PictionaryUi {
                 showMenuCreateVorm();
                 break;
             case "2":
-                JOptionPane.showMessageDialog(null, tekening.toString());
-                break;
+                GameMainWindow view = new GameMainWindow("Hangman", tekening);
+                view.setVisible(true);
+                view.teken();                break;
             case "0":
                 System.exit(0);
                 break;

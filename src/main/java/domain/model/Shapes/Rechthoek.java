@@ -73,12 +73,6 @@ public class Rechthoek extends Vorm{
             return false;
         }
     }
-
-    @Override
-    public Omhullende getOmhullende() {
-        return omhullende;
-    }
-
     public void setHoogte(int hoogte) {
         if(hoogte<= 0){
             throw new DomainException("De hoogte van een rechthoek moet strict positief zijn.");
@@ -91,10 +85,5 @@ public class Rechthoek extends Vorm{
             throw new DomainException("De breedte van een rechthoek moet strict positief zijn.");
         }
         this.breedte = breedte;
-    }
-
-    @Override
-    public void teken(Graphics graphics) {
-
     }
 }
