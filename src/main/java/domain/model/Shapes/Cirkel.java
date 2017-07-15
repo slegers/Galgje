@@ -1,5 +1,7 @@
 package domain.model.Shapes;
 
+import java.awt.*;
+
 /**
  * Created by yanice on 07/06/2017.
  */
@@ -66,5 +68,10 @@ public class Cirkel extends Vorm {
 
     public Punt getMiddelpunt() {
         return middelpunt;
+    }
+
+    @Override
+    public void teken(Graphics graphics) {
+
     }
 }

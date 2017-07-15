@@ -2,6 +2,8 @@ package domain.model.Shapes;
 
 import domain.model.DomainException;
 
+import java.awt.*;
+
 /**
  * Created by yanice on 07/06/2017.
  */
@@ -91,4 +93,8 @@ public class Rechthoek extends Vorm{
         this.breedte = breedte;
     }
 
+    @Override
+    public void teken(Graphics graphics) {
+
+    }
 }

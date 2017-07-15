@@ -2,6 +2,8 @@ package domain.model.Shapes;
 
 import domain.model.DomainException;
 
+import java.awt.*;
+
 /**
  * Created by yanice on 07/06/2017.
  */
@@ -44,7 +46,60 @@ public class Driehoek extends Vorm{
 
     @Override
     protected void setOmhullende() {
+        int x = calculateMinXOmhullende();
+        int y = calculateMinYOmhullende();
+        Punt p = new Punt(x,y);
+        int maxX =  calculateMaxXOmhullende();
+        int maxY = calculateMaxYOmhullende();
+        setOmhullende(new Omhullende(p,maxX-p.getX(),maxY-p.getY()));
+    }
 
+    private int calculateMaxYOmhullende() {
+        if(hoekPunt3.getY() < hoekPunt1.getY()){
+            return Math.max(hoekPunt1.getY(),hoekPunt2.getY());
+        }else{
+            return Math.max(hoekPunt2.getY(),hoekPunt3.getY());
+        }
+    }
+
+    private int calculateMaxXOmhullende() {
+        if(hoekPunt3.getX() < hoekPunt1.getX()){
+            return Math.max(hoekPunt1.getX(),hoekPunt2.getX());
+        }else{
+            return Math.max(hoekPunt2.getX(),hoekPunt3.getX());
+        }
+    }
+
+    private int calculateMinYOmhullende() {
+        if(hoekPunt1.getY() < hoekPunt2.getY()){
+            if(hoekPunt1.getY() < hoekPunt3.getY()){
+                return hoekPunt1.getY();
+            }else{
+                return hoekPunt3.getY();
+            }
+        }else{
+            if(hoekPunt2.getY() < hoekPunt3.getY()){
+                return hoekPunt2.getY();
+            }else{
+                return hoekPunt3.getY();
+            }
+        }
+    }
+
+    private int calculateMinXOmhullende() {
+        if(hoekPunt1.getX() < hoekPunt2.getX()){
+            if(hoekPunt1.getX() < hoekPunt3.getX()){
+                return hoekPunt1.getX();
+            }else{
+                return hoekPunt3.getX();
+            }
+        }else{
+            if(hoekPunt2.getX() < hoekPunt3.getX()){
+                return hoekPunt2.getX();
+            }else{
+                return hoekPunt3.getX();
+            }
+        }
     }
 
     @Override
@@ -73,5 +128,10 @@ public class Driehoek extends Vorm{
         }else{
             return false;
         }
+    }
+
+    @Override
+    public void teken(Graphics graphics) {
+
     }
 }

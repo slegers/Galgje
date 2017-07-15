@@ -1,11 +1,12 @@
 package domain.model.Shapes;
 
 import domain.model.DomainException;
+import domain.model.Drawable;
 
 /**
  * Created by yanice on 07/06/2017.
  */
-public abstract class Vorm {
+public abstract class Vorm implements Drawable {
 
     private Omhullende omhullende;
 

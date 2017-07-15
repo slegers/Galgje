@@ -3,13 +3,14 @@ package domain.model;
 
 import domain.model.Shapes.Vorm;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 /**
  * Created by yanice on 08/06/2017.
  */
 @SuppressWarnings("ALL")
-public class Tekening {
+public class Tekening implements Drawable{
     private static final int MIN_X = 0;
     private static final int MIN_Y = 0;
     private static final int MAX_X=399;
@@ -71,7 +72,19 @@ public class Tekening {
     }
 
     public void voegToe(Vorm v) {
-        vormen.add(v);
+        if(canHaveAsVorm(v)){
+            vormen.add(v);
+        }else{
+            throw new DomainException("Deze vorm past niet in de tekening");
+        }
+
+    }
+
+    private boolean canHaveAsVorm(Vorm v) {
+        if(v.getOmhullende().getMinY() < MIN_Y || v.getOmhullende().getMinX()< MIN_X || v.getOmhullende().getMaxX() > MAX_X || v.getOmhullende().getMaxX() > MAX_Y){
+            return false;
+        }
+        return true;
     }
 
     public void setNaam(String naam) {
@@ -83,5 +96,10 @@ public class Tekening {
 
     public ArrayList<Vorm> getVormen() {
         return vormen;
+    }
+
+    @Override
+    public void teken(Graphics graphics) {
+
     }
 }

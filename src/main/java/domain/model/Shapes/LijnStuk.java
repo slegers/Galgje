@@ -2,6 +2,8 @@ package domain.model.Shapes;
 
 import domain.model.DomainException;
 
+import java.awt.*;
+
 /**
  * Created by yanice on 07/06/2017.
  */
@@ -80,5 +82,10 @@ public class LijnStuk extends Vorm {
             setOmhullende(new Omhullende(eindPunt,startPunt.getX()-eindPunt.getX(),startPunt.getY()-eindPunt.getY()));
 
         }
+    }
+
+    @Override
+    public void teken(Graphics graphics) {
+
     }
 }
