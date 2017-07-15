@@ -105,4 +105,8 @@ public class Tekening implements Drawable{
             v.teken(graphics);
         }
     }
+
+    public int getAantalOnzichtbaar() {
+        return 0;
+    }
 }
