@@ -24,9 +24,6 @@ public class Controller {
     public void showMainMenu(){
         ui.showMainMenu();
     }
-    private void showMenu() {
-        ui.showMenuCreateVorm();
-    }
 
     public void createPlayer() {
         ui.createPlayer();
@@ -39,33 +36,27 @@ public class Controller {
     public void createPunt() {
         PuntCreator c = new PuntCreator();
         Punt p = c.create();
-        c.show();
         ui.voegToe(p);
     }
 
     public void createCirkel() {
         CirkelCreator cc = new CirkelCreator();
         ui.voegToe(cc.cirkelCreator());
-        cc.show();
     }
 
     public void createRechthoek() {
         RechthoekCreator rc = new RechthoekCreator();
         ui.voegToe(rc.create());
-
-        rc.show();
     }
 
     public void createLijnstuk() {
         LijnStukCreator lc = new LijnStukCreator();
         ui.voegToe(lc.create());
-        lc.show();
     }
 
 
     public void createDriehoek() {
         DriehoekCreator dc = new DriehoekCreator();
         ui.voegToe(dc.createDrieHoek());
-        dc.show();
     }
 }

@@ -20,6 +20,8 @@ public class Driehoek extends Vorm{
             hoekPunt1 = p1;
             hoekPunt2 = p2;
             hoekPunt3 = p3;
+        }else{
+            throw new DomainException("De punten mogen niet op dezelfde lijn liggen.");
         }
     }
 

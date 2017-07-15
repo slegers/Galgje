@@ -5,6 +5,7 @@ import domain.model.Shapes.*;
 import domain.model.Tekening;
 
 import java.awt.*;
+import java.awt.geom.Line2D;
 
 /**
  * Created by yanice on 14/07/2017.
@@ -20,22 +21,27 @@ public class TekenVenster extends Canvas {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setStroke(new BasicStroke(5));
         for (Vorm v : tekening.getVormen()) {
             switch (v.vorm()){
                 case "Cirkel":
                     Cirkel c = (Cirkel) v;
-                    g.drawOval(c.getMiddelpunt().getX(),c.getMiddelpunt().getY(),c.getRadius(),c.getRadius());
+                    g2.drawOval(c.getMiddelpunt().getX(),c.getMiddelpunt().getY(),c.getRadius(),c.getRadius());
                     break;
                 case "Rechthoek":
                     Rechthoek r = (Rechthoek) v;
-                    g.drawRect(r.getLinkerBovenhoek().getX(),r.getLinkerBovenhoek().getY(),r.getBreedte(),r.getHoogte());
+                    g2.drawRect(r.getLinkerBovenhoek().getX(),r.getLinkerBovenhoek().getY(),r.getBreedte(),r.getHoogte());
                     break;
                 case "Driehoek":
                     Driehoek d = (Driehoek) v;
+                    g2.drawLine(d.getHoekPunt1().getX(),d.getHoekPunt1().getY(),d.getHoekPunt2().getX(),d.getHoekPunt2().getY());
+                    g2.drawLine(d.getHoekPunt3().getX(),d.getHoekPunt3().getY(),d.getHoekPunt2().getX(),d.getHoekPunt2().getY());
+                    g2.drawLine(d.getHoekPunt1().getX(),d.getHoekPunt1().getY(),d.getHoekPunt3().getX(),d.getHoekPunt3().getY());
                     break;
                 case "Lijnstuk":
                     LijnStuk l = (LijnStuk) v;
-                    g.drawLine(l.getStartPunt().getX(),l.getStartPunt().getY(),l.getEindPunt().getX(),l.getEindPunt().getY());
+                    g2.drawLine(l.getStartPunt().getX(),l.getStartPunt().getY(),l.getEindPunt().getX(),l.getEindPunt().getY());
                     break;
                 case "Punt":
                     break;

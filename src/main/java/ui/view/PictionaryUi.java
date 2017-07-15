@@ -37,7 +37,7 @@ public class PictionaryUi {
         }
 
         public void showMenuCreateVorm(){
-            Object[] shapes = {"Punt", "Cirkel","Driehoek", "Rechthoek", "Lijnstuk","Toon Tekening" };
+            Object[] shapes = {"Punt", "Cirkel","Driehoek", "Rechthoek", "Lijnstuk"};
             Object keuze = JOptionPane.showInputDialog(null, "Wat wilt u tekenen", "input", JOptionPane.INFORMATION_MESSAGE, null, shapes, null);
             switch (keuze.toString()){
                 case "Punt":
