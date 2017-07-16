@@ -5,25 +5,21 @@ import domain.db.WoordenLezer;
 import domain.model.*;
 import domain.model.Shapes.*;
 import domain.model.Speler;
-import domain.model.Tekenings.TekeningHangMan;
 import domain.model.Woord.WoordenLijst;
-import jdk.nashorn.internal.scripts.JO;
 import ui.view.*;
 import ui.view.creators.*;
 
 import javax.swing.*;
 
-import static sun.plugin.ClassLoaderInfo.reset;
-
 /**
  * Created by yanice on 10/06/2017.
  */
 public class Controller {
-    private PictionaryUi ui;
+    private MenuUi ui;
     private HangMan game;
 
     public Controller(){
-        ui = new PictionaryUi(this);
+        ui = new MenuUi(this);
         game = new HangMan(createPlayer(),createWoordenLijst());
         ui.createTekening();
         showMainMenu();

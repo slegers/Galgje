@@ -13,11 +13,11 @@ import javax.swing.*;
 /**
  * Created by yanice on 08/07/2017.
  */
-public class PictionaryUi {
+public class MenuUi {
         private GameMainWindow view;
         private Controller controller;
         private Tekening tekening;
-        public PictionaryUi(Controller c){
+        public MenuUi(Controller c){
             setController(c);
         }
 
@@ -117,7 +117,7 @@ public class PictionaryUi {
     }
 
     public void showMainMenu() {
-        Object[] shapes = {"Galgje","Tekenen","Stop"};
+        Object[] shapes = {"Galgje","Tekenen","Over","Stop"};
         Object keuze = JOptionPane.showInputDialog(null, "Dag " + controller.getHuidigeSpeler().getNaam() + " welk spel wil je spelen?", "input", JOptionPane.INFORMATION_MESSAGE, null, shapes, null);
         switch (keuze.toString()){
             case "Galgje":
@@ -128,6 +128,8 @@ public class PictionaryUi {
                 break;
             case "Stop":
                 System.exit(0);
+                break;
+            case "Over":
                 break;
             default:
                 JOptionPane.showMessageDialog(null,"Whoops hier ging hies mis.");
