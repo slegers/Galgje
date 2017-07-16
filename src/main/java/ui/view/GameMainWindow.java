@@ -13,6 +13,7 @@ public class GameMainWindow extends JFrame {
     private TekenVenster tv;
     private Tekening tekening;
     public GameMainWindow(String naam, Tekening tekening){
+        super(naam);
         setTekening(tekening);
         setLayout(null);
         setBounds(0,0,500,500);

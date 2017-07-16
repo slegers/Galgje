@@ -9,6 +9,9 @@ import domain.model.Tekening;
 import ui.controller.Controller;
 
 import javax.swing.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 /**
  * Created by yanice on 08/07/2017.
@@ -130,6 +133,18 @@ public class MenuUi {
                 System.exit(0);
                 break;
             case "Over":
+                Scanner x = null;
+                try {
+                    x = new Scanner(new File("LICENSE"));
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                String message = "";
+
+                while(x.hasNext()){
+                    message += "\t" + x.nextLine() + "\n";
+                }
+                new showAbout(message);
                 break;
             default:
                 JOptionPane.showMessageDialog(null,"Whoops hier ging hies mis.");
