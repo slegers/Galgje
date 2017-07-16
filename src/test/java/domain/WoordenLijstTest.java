@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
-import domain.model.WoordenLijst;
+import domain.model.DomainException;
 import org.junit.Before;
 import org.junit.Test;
 

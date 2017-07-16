@@ -12,14 +12,12 @@ public class HintLetterTest {
 	@Test
 	public void HintLetter_moet_HintLetter_maken_die_niet_geraden_is() {
 		HintLetter letter = new HintLetter('a');
-
 		assertFalse(letter.isGeraden());
 	}
 
 	@Test
 	public void raad_moet_true_teruggeven_en_op_geraden_zetten_als_juiste_letter() {
 		HintLetter letter = new HintLetter('x');
-
 		assertTrue(letter.raad('x'));
 		assertTrue(letter.isGeraden());
 	}
@@ -27,7 +25,6 @@ public class HintLetterTest {
 	@Test
 	public void raad_moet_true_teruggeven_en_op_geraden_zetten_als_juiste_letter_maar_upperCase_in_plaats_van_lowercase() {
 		HintLetter letter = new HintLetter('x');
-
 		assertTrue(letter.raad('X'));
 		assertTrue(letter.isGeraden());
 	}
@@ -35,7 +32,6 @@ public class HintLetterTest {
 	@Test
 	public void raad_moet_true_teruggeven_en_op_geraden_zetten_als_juiste_letter_maar_lowerCase_in_plaats_van_uppercase() {
 		HintLetter letter = new HintLetter('X');
-
 		assertTrue(letter.raad('x'));
 		assertTrue(letter.isGeraden());
 	}
@@ -51,7 +47,6 @@ public class HintLetterTest {
 	@Test
 	public void raad_moet_false_teruggeven_maar_op_geraden_laten_staan_als_juiste_letter_maar_reeds_geraden() {
 		HintLetter letter = new HintLetter('f');
-
 		assertTrue(letter.raad('f'));
 		assertTrue(letter.isGeraden());
 		assertFalse(letter.raad('f'));
@@ -63,7 +58,7 @@ public class HintLetterTest {
 		assertTrue(letter.raad('x'));
 
 		assertEquals('x', letter.toChar());
-		;
+
 	}
 
 	@Test

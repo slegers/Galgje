@@ -5,18 +5,26 @@ package domain.model;
  */
 public class HintLetter {
     private char letter;
+    private boolean isGeraden = false;
     public HintLetter(char letter){
         this.letter = letter;
     }
-    public void raad(char letter){
-
-    }
-    public boolean isGeraden(){
+    public boolean raad(char letter){
+        if(Character.toLowerCase(letter) == Character.toLowerCase(this.letter) && !isGeraden) {
+            isGeraden = true;
+            return isGeraden;
+        }
         return false;
     }
-    public char toChar(){
-        return 's';
+    public boolean isGeraden(){
+        return isGeraden;
     }
+
+    public char toChar(){
+        return isGeraden() ? letter : '_';
+
+    }
+
     public char getLetter(){
         return letter;
     }
