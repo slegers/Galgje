@@ -2,6 +2,7 @@ package domain;
 
 import domain.model.Speler;
 import domain.model.Tekening;
+import domain.model.Woord.WoordenLijst;
 
 /**
  * Created by yanice on 15/07/2017.

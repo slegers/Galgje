@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import domain.model.DomainException;
 import domain.model.Speler;
+import domain.model.Woord.WoordenLijst;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -8,6 +8,8 @@ import domain.model.Speler;
 import ui.view.*;
 import ui.view.creators.*;
 
+import javax.swing.*;
+
 /**
  * Created by yanice on 10/06/2017.
  */
@@ -19,8 +21,21 @@ public class Controller {
         ui = new PictionaryUi(this);
         createPlayer();
         ui.createTekening();
-        showMainMenu();
+        showOptionMenu();
+        //showMainMenu();
+        while (!game.isFinished()) {
+            AskForLetter();
+        }
     }
+
+    private void showOptionMenu() {
+        ui.showOptionMenu();
+    }
+
+    public Speler getHuidigeSpeler(){
+        return game.getHuidigeSpeler();
+    }
+
     public void showMainMenu(){
         ui.showMainMenu();
     }
@@ -58,5 +73,15 @@ public class Controller {
     public void createDriehoek() {
         DriehoekCreator dc = new DriehoekCreator();
         ui.voegToe(dc.createDrieHoek());
+    }
+
+    public void AskForLetter() {
+        String s = JOptionPane.showInputDialog(null, "RaraRa welk woord zoeken we? \n\n"
+        + game.getWoord());
+        if(s.length() != 1){
+            JOptionPane.showMessageDialog(null,"Gelieve een letter in tegeven");
+        }else{
+            game.doeGok(s);
+        }
     }
 }

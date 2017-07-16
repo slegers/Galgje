@@ -101,4 +101,18 @@ public class PictionaryUi {
         }
         showMainMenu();
     }
+
+    public void showOptionMenu() {
+        Object[] shapes = {"Galgje"};
+        Object keuze = JOptionPane.showInputDialog(null, "Dag " + controller.getHuidigeSpeler().getNaam() + " welk spel wil je spelen?", "input", JOptionPane.INFORMATION_MESSAGE, null, shapes, null);
+        switch (keuze.toString()){
+            case "Galgje":
+                controller.AskForLetter();
+                break;
+            default:
+                JOptionPane.showMessageDialog(null,"Whoops hier ging hies mis.");
+                showOptionMenu();
+                break;
+        }
+    }
 }

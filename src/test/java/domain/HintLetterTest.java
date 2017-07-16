@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import domain.model.HintLetter;
+import domain.model.Woord.HintLetter;
 import org.junit.Test;
 
 

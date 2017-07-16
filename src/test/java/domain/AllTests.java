@@ -1,7 +1,5 @@
 package domain;
 
-import domain.model.HintLetter;
-import domain.model.HintWoord;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;

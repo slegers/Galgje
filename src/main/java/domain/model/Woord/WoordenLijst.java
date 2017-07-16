@@ -1,4 +1,4 @@
-package domain;
+package domain.model.Woord;
 
 /**
  * Created by yanice on 15/07/2017.

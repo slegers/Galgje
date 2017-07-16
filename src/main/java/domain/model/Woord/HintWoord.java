@@ -1,7 +1,6 @@
-package domain.model;
+package domain.model.Woord;
 
-import com.sun.java.browser.plugin2.DOM;
-import com.sun.org.apache.xml.internal.dtm.ref.dom2dtm.DOM2DTM;
+import domain.model.DomainException;
 
 /**
  * Created by yanice on 15/07/2017.
