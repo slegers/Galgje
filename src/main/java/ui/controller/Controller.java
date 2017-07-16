@@ -21,9 +21,7 @@ import static sun.plugin.ClassLoaderInfo.reset;
 public class Controller {
     private PictionaryUi ui;
     private HangMan game;
-    private GameMainWindow gameMainWindow;
-    private TekenVenster tv;
-    private TekeningHangMan th;
+
     public Controller(){
         ui = new PictionaryUi(this);
         game = new HangMan(createPlayer(),createWoordenLijst());
@@ -79,40 +77,25 @@ public class Controller {
         ui.voegToe(dc.createDrieHoek());
     }
 
-    public void AskForLetter() {
-        String s = JOptionPane.showInputDialog(null, "RaraRa welk woord zoeken we? \n\n"
-        + game.getWoord());
+    public boolean AskForLetter(String s) {
         if(s.length() != 1){
             JOptionPane.showMessageDialog(null,"Gelieve een letter in tegeven");
+            return false;
         }else{
-            if(!game.doeGok(s)) {
-                if(!th.zetVolgendeZichtbaar()){
-                    game.setIsGameOver(true);
-                }
+              return game.doeGok(s);
             }
-        }
     }
 
     public void playGalgje() {
-        th = new TekeningHangMan("Hangman");
-        gameMainWindow = new GameMainWindow("Hangman",(Tekening) th);
-        gameMainWindow.setVisible(true);
-        gameMainWindow.teken();
-        while (!game.isFinished() && !game.isGameOver()) {
-            AskForLetter();
-            gameMainWindow.teken();
-        }
-        gameMainWindow.dispose();
-        if(game.isFinished()){
-            JOptionPane.showMessageDialog(null,"Proiciat u hebt het spel gewonnen.");
-            restart();
-        }else{
-            JOptionPane.showMessageDialog(null,"Helaas probeer het opnieuw.");
-        }
+        new HangManUi(this).play();
     }
 
-    private void restart() {
+    public void restart() {
         Speler s = game.getHuidigeSpeler();
         game = new HangMan(s,createWoordenLijst());
+    }
+
+    public HangMan getGame() {
+        return game;
     }
 }
