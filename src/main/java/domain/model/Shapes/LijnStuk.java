@@ -78,9 +78,9 @@ public class LijnStuk extends Vorm {
 
     public void setOmhullende() {
         if (startPunt.getY() < eindPunt.getY()) {
-            setOmhullende(new Omhullende(startPunt, eindPunt.getX() - startPunt.getX(), eindPunt.getY() - startPunt.getY()));
+            setOmhullende(new Omhullende(startPunt, Math.abs(eindPunt.getX() - startPunt.getX()), Math.abs(eindPunt.getY() - startPunt.getY())));
         } else {
-            setOmhullende(new Omhullende(eindPunt, startPunt.getX() - eindPunt.getX(), startPunt.getY() - eindPunt.getY()));
+            setOmhullende(new Omhullende(eindPunt, Math.abs(startPunt.getX() - eindPunt.getX()), Math.abs(startPunt.getY() - eindPunt.getY())));
 
         }
     }

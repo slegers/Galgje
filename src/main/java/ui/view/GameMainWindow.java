@@ -1,6 +1,6 @@
 package ui.view;
 
-import domain.model.DomainException;
+
 import domain.model.Tekening;
 
 import javax.swing.*;

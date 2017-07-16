@@ -1,6 +1,5 @@
 package domain.model;
 
-
 import domain.model.Shapes.Vorm;
 
 import java.awt.*;
@@ -10,11 +9,11 @@ import java.util.ArrayList;
  * Created by yanice on 08/06/2017.
  */
 @SuppressWarnings("ALL")
-public class Tekening implements Drawable{
+public class Tekening implements Drawable {
     private static final int MIN_X = 0;
     private static final int MIN_Y = 0;
-    private static final int MAX_X=399;
-    private static final int MAX_Y=399;
+    private static final int MAX_X=500;
+    private static final int MAX_Y=500;
 
     private String naam;
     private ArrayList<Vorm> vormen = new ArrayList();
@@ -45,7 +44,7 @@ public class Tekening implements Drawable{
     }
     @Override
     public String toString(){
-        String t =  "Tekening met de naam " + this.naam + " bestaat uit " +vormen.size() + " vormen.\n";
+        String t =  "domain.model.Tekening met de naam " + this.naam + " bestaat uit " +vormen.size() + " vormen.\n";
         for(Vorm v : vormen){
             t += v.vorm() + " " + v.toString() + "\n";
         }
@@ -81,7 +80,6 @@ public class Tekening implements Drawable{
     }
 
     private boolean canHaveAsVorm(Vorm v) {
-        System.out.print(v.vorm());
         if(v.getOmhullende().getMinY() < MIN_Y || v.getOmhullende().getMinX()< MIN_X || v.getOmhullende().getMaxX() > MAX_X || v.getOmhullende().getMaxX() > MAX_Y){
             return false;
         }

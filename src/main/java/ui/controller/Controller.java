@@ -1,10 +1,12 @@
 package ui.controller;
 
 
+import domain.db.WoordenLezer;
 import domain.model.*;
-import domain.model.Shapes.LijnStuk;
 import domain.model.Shapes.*;
 import domain.model.Speler;
+import domain.model.Tekenings.TekeningHangMan;
+import domain.model.Woord.WoordenLijst;
 import ui.view.*;
 import ui.view.creators.*;
 
@@ -15,37 +17,33 @@ import javax.swing.*;
  */
 public class Controller {
     private PictionaryUi ui;
-    private HangmanGame game;
+    private HangMan game;
     public Controller(){
-        game = new HangmanGame();
         ui = new PictionaryUi(this);
-        createPlayer();
+        game = new HangMan(createPlayer(),createWoordenLijst());
         ui.createTekening();
         showOptionMenu();
-        //showMainMenu();
-        while (!game.isFinished()) {
-            AskForLetter();
-        }
+    }
+
+    private WoordenLijst createWoordenLijst() {
+        WoordenLezer lezer = new WoordenLezer();
+        return lezer.createWoordenLijst();
     }
 
     private void showOptionMenu() {
-        ui.showOptionMenu();
+        ui.showMainMenu();
     }
 
     public Speler getHuidigeSpeler(){
         return game.getHuidigeSpeler();
     }
 
-    public void showMainMenu(){
-        ui.showMainMenu();
+    public void showTekenMenu(){
+        ui.showTekenMenu();
     }
 
-    public void createPlayer() {
-        ui.createPlayer();
-    }
-
-    public void setHuidigeSpeler(Speler s){
-        game.setHuidigeSpeler(s);
+    public Speler createPlayer() {
+        return ui.createPlayer();
     }
 
     public void createPunt() {
@@ -83,5 +81,16 @@ public class Controller {
         }else{
             game.doeGok(s);
         }
+    }
+
+    public void playGalgje() {
+        while (!game.isFinished()) {
+            AskForLetter();
+           GameMainWindow w = new GameMainWindow("Hangman",(Tekening) new TekeningHangMan("Hangman"));
+            w.setVisible(true);
+            w.teken();
+        }
+        JOptionPane.showMessageDialog(null,"Proficiat u raadde het woord: \n " +
+              game.getWoord());
     }
 }

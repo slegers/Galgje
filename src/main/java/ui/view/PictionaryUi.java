@@ -2,11 +2,9 @@ package ui.view;
 
 
 import domain.model.DomainException;
-import domain.model.Shapes.Punt;
 import domain.model.Shapes.Vorm;
 import domain.model.Speler;
 import domain.model.Tekening;
-import jdk.nashorn.internal.scripts.JO;
 import ui.controller.Controller;
 
 import javax.swing.*;
@@ -28,12 +26,12 @@ public class PictionaryUi {
             this.controller = controller;
         }
 
-        public void createPlayer() {
+        public Speler createPlayer() {
             String naam = JOptionPane.showInputDialog(null,"Wat is de speler zijn naam.");
             if(naam.trim().isEmpty()){
-            }else{
-                controller.setHuidigeSpeler(new Speler(naam));
+                return createPlayer();
             }
+            return new Speler(naam);
         }
 
         public void showMenuCreateVorm(){
@@ -76,7 +74,7 @@ public class PictionaryUi {
             tekening.voegToe(v);
     }
 
-    public void showMainMenu() {
+    public void showTekenMenu() {
         String keuze = JOptionPane.showInputDialog("Wat wil je doen? \n" +
                 "\n"
             + "1. Vorm  toevoegen \n" +
@@ -86,33 +84,44 @@ public class PictionaryUi {
         switch (keuze) {
             case "1":
                 showMenuCreateVorm();
+                showTekenMenu();
                 break;
             case "2":
-                GameMainWindow view = new GameMainWindow("Hangman", tekening);
+                GameMainWindow view = new GameMainWindow("HangMan", tekening);
                 view.setVisible(true);
-                view.teken();                break;
+                view.teken();
+                showTekenMenu();
+                break;
             case "0":
+                return;
+
+            default:
+                JOptionPane.showMessageDialog(null, "Whoop hier ging iets mis. Probeer opniew");
+                showTekenMenu();
+                break;
+        }
+    }
+
+    public void showMainMenu() {
+        Object[] shapes = {"Galgje","Tekenen","Stop","Voeg woord toe"};
+        Object keuze = JOptionPane.showInputDialog(null, "Dag " + controller.getHuidigeSpeler().getNaam() + " welk spel wil je spelen?", "input", JOptionPane.INFORMATION_MESSAGE, null, shapes, null);
+        switch (keuze.toString()){
+            case "Galgje":
+                controller.playGalgje();
+                break;
+            case "Tekenen":
+                controller.showTekenMenu();
+                break;
+            case "Voeg woord toe":
+                break;
+            case "Stop":
                 System.exit(0);
                 break;
             default:
-                JOptionPane.showMessageDialog(null, "Whoop hier ging iets mis. Probeer opniew");
+                JOptionPane.showMessageDialog(null,"Whoops hier ging hies mis.");
                 showMainMenu();
                 break;
         }
         showMainMenu();
-    }
-
-    public void showOptionMenu() {
-        Object[] shapes = {"Galgje"};
-        Object keuze = JOptionPane.showInputDialog(null, "Dag " + controller.getHuidigeSpeler().getNaam() + " welk spel wil je spelen?", "input", JOptionPane.INFORMATION_MESSAGE, null, shapes, null);
-        switch (keuze.toString()){
-            case "Galgje":
-                controller.AskForLetter();
-                break;
-            default:
-                JOptionPane.showMessageDialog(null,"Whoops hier ging hies mis.");
-                showOptionMenu();
-                break;
-        }
     }
 }

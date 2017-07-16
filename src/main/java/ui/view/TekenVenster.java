@@ -1,11 +1,9 @@
 package ui.view;
 
-import domain.model.Drawable;
 import domain.model.Shapes.*;
 import domain.model.Tekening;
 
 import java.awt.*;
-import java.awt.geom.Line2D;
 
 /**
  * Created by yanice on 14/07/2017.
