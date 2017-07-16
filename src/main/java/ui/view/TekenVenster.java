@@ -22,6 +22,7 @@ public class TekenVenster extends Canvas {
         Graphics2D g2 = (Graphics2D) g;
         g2.setStroke(new BasicStroke(5));
         for (Vorm v : tekening.getVormen()) {
+            if(!v.isZichtbaar()){
             switch (v.vorm()){
                 case "Cirkel":
                     Cirkel c = (Cirkel) v;
@@ -46,6 +47,7 @@ public class TekenVenster extends Canvas {
                 default:
                     break;
             }
+        }
         }
     }
 

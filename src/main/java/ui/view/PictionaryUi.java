@@ -1,6 +1,7 @@
 package ui.view;
 
 
+import com.sun.codemodel.internal.JOp;
 import domain.model.DomainException;
 import domain.model.Shapes.Vorm;
 import domain.model.Speler;
@@ -13,6 +14,7 @@ import javax.swing.*;
  * Created by yanice on 08/07/2017.
  */
 public class PictionaryUi {
+        private GameMainWindow view;
         private Controller controller;
         private Tekening tekening;
         public PictionaryUi(Controller c){
@@ -35,28 +37,32 @@ public class PictionaryUi {
         }
 
         public void showMenuCreateVorm(){
-            Object[] shapes = {"Punt", "Cirkel","Driehoek", "Rechthoek", "Lijnstuk"};
-            Object keuze = JOptionPane.showInputDialog(null, "Wat wilt u tekenen", "input", JOptionPane.INFORMATION_MESSAGE, null, shapes, null);
-            switch (keuze.toString()){
-                case "Punt":
-                    controller.createPunt();
-                    break;
-                case "Cirkel":
-                    controller.createCirkel();
-                    break;
-                case "Driehoek":
-                    controller.createDriehoek();
-                    break;
-                case "Rechthoek":
-                    controller.createRechthoek();
-                    break;
-                case "Lijnstuk":
-                    controller.createLijnstuk();
-                    break;
-                default:
-                    JOptionPane.showMessageDialog(null,"Whoops hier ging hies mis.");
-                    showMenuCreateVorm();
-                    break;
+            try{
+                Object[] shapes = {"Punt", "Cirkel","Driehoek", "Rechthoek", "Lijnstuk"};
+                Object keuze = JOptionPane.showInputDialog(null, "Wat wilt u tekenen", "input", JOptionPane.INFORMATION_MESSAGE, null, shapes, null);
+                switch (keuze.toString()){
+                    case "Punt":
+                        controller.createPunt();
+                        break;
+                    case "Cirkel":
+                        controller.createCirkel();
+                        break;
+                    case "Driehoek":
+                        controller.createDriehoek();
+                        break;
+                    case "Rechthoek":
+                        controller.createRechthoek();
+                        break;
+                    case "Lijnstuk":
+                        controller.createLijnstuk();
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null,"Whoops hier ging hies mis.");
+                        showMenuCreateVorm();
+                        break;
+                }
+            }catch (DomainException e){
+                JOptionPane.showMessageDialog(null,e.getMessage());
             }
         }
 
@@ -75,6 +81,7 @@ public class PictionaryUi {
     }
 
     public void showTekenMenu() {
+
         String keuze = JOptionPane.showInputDialog("Wat wil je doen? \n" +
                 "\n"
             + "1. Vorm  toevoegen \n" +
@@ -87,12 +94,19 @@ public class PictionaryUi {
                 showTekenMenu();
                 break;
             case "2":
-                GameMainWindow view = new GameMainWindow("HangMan", tekening);
+                if(view != null){
+                    view.dispose();
+                }
+                view = new GameMainWindow("HangMan", tekening);
                 view.setVisible(true);
                 view.teken();
+                view.repaint();
                 showTekenMenu();
                 break;
             case "0":
+                if(view != null){
+                    view.dispose();
+                }
                 return;
 
             default:
@@ -103,7 +117,7 @@ public class PictionaryUi {
     }
 
     public void showMainMenu() {
-        Object[] shapes = {"Galgje","Tekenen","Stop","Voeg woord toe"};
+        Object[] shapes = {"Galgje","Tekenen","Stop"};
         Object keuze = JOptionPane.showInputDialog(null, "Dag " + controller.getHuidigeSpeler().getNaam() + " welk spel wil je spelen?", "input", JOptionPane.INFORMATION_MESSAGE, null, shapes, null);
         switch (keuze.toString()){
             case "Galgje":
@@ -111,8 +125,6 @@ public class PictionaryUi {
                 break;
             case "Tekenen":
                 controller.showTekenMenu();
-                break;
-            case "Voeg woord toe":
                 break;
             case "Stop":
                 System.exit(0);

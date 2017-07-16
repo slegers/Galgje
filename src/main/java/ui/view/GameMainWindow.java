@@ -2,6 +2,7 @@ package ui.view;
 
 
 import domain.model.Tekening;
+import domain.model.Tekenings.TekeningHangMan;
 
 import javax.swing.*;
 
@@ -22,10 +23,17 @@ public class GameMainWindow extends JFrame {
         tv.teken();
     }
 
+    public TekenVenster getTekenvenster(){
+        return tv;
+    }
+
     public void setTekening(Tekening tekening) {
         if(tekening == null){
             throw new UiException("De tekening kan niet null zijn wanneer Deze getekend wordt.");
         }
         this.tekening = tekening;
+    }
+    public TekeningHangMan getTekening(){
+        return (TekeningHangMan) tekening;
     }
 }

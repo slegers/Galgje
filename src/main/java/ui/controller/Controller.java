@@ -7,10 +7,13 @@ import domain.model.Shapes.*;
 import domain.model.Speler;
 import domain.model.Tekenings.TekeningHangMan;
 import domain.model.Woord.WoordenLijst;
+import jdk.nashorn.internal.scripts.JO;
 import ui.view.*;
 import ui.view.creators.*;
 
 import javax.swing.*;
+
+import static sun.plugin.ClassLoaderInfo.reset;
 
 /**
  * Created by yanice on 10/06/2017.
@@ -18,11 +21,14 @@ import javax.swing.*;
 public class Controller {
     private PictionaryUi ui;
     private HangMan game;
+    private GameMainWindow gameMainWindow;
+    private TekenVenster tv;
+    private TekeningHangMan th;
     public Controller(){
         ui = new PictionaryUi(this);
         game = new HangMan(createPlayer(),createWoordenLijst());
         ui.createTekening();
-        showOptionMenu();
+        showMainMenu();
     }
 
     private WoordenLijst createWoordenLijst() {
@@ -30,7 +36,7 @@ public class Controller {
         return lezer.createWoordenLijst();
     }
 
-    private void showOptionMenu() {
+    private void showMainMenu() {
         ui.showMainMenu();
     }
 
@@ -79,18 +85,34 @@ public class Controller {
         if(s.length() != 1){
             JOptionPane.showMessageDialog(null,"Gelieve een letter in tegeven");
         }else{
-            game.doeGok(s);
+            if(!game.doeGok(s)) {
+                if(!th.zetVolgendeZichtbaar()){
+                    game.setIsGameOver(true);
+                }
+            }
         }
     }
 
     public void playGalgje() {
-        while (!game.isFinished()) {
+        th = new TekeningHangMan("Hangman");
+        gameMainWindow = new GameMainWindow("Hangman",(Tekening) th);
+        gameMainWindow.setVisible(true);
+        gameMainWindow.teken();
+        while (!game.isFinished() && !game.isGameOver()) {
             AskForLetter();
-           GameMainWindow w = new GameMainWindow("Hangman",(Tekening) new TekeningHangMan("Hangman"));
-            w.setVisible(true);
-            w.teken();
+            gameMainWindow.teken();
         }
-        JOptionPane.showMessageDialog(null,"Proficiat u raadde het woord: \n " +
-              game.getWoord());
+        gameMainWindow.dispose();
+        if(game.isFinished()){
+            JOptionPane.showMessageDialog(null,"Proiciat u hebt het spel gewonnen.");
+            restart();
+        }else{
+            JOptionPane.showMessageDialog(null,"Helaas probeer het opnieuw.");
+        }
+    }
+
+    private void restart() {
+        Speler s = game.getHuidigeSpeler();
+        game = new HangMan(s,createWoordenLijst());
     }
 }

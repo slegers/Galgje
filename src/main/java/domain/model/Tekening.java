@@ -80,6 +80,9 @@ public class Tekening implements Drawable {
     }
 
     private boolean canHaveAsVorm(Vorm v) {
+        if(v.vorm().equals("Punt")){
+            return false;
+        }
         if(v.getOmhullende().getMinY() < MIN_Y || v.getOmhullende().getMinX()< MIN_X || v.getOmhullende().getMaxX() > MAX_X || v.getOmhullende().getMaxX() > MAX_Y){
             return false;
         }

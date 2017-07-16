@@ -12,7 +12,7 @@ public class HangMan {
     private HintWoord woord;
     private String hint;
     private Tekening tekening;
-
+    private boolean isGameOver = false;
     public HangMan(Speler s, WoordenLijst geldigeWoordenlijst) {
         setHuidigeSpeler(s);
         setWoord(geldigeWoordenlijst.getRandomWoord());
@@ -45,16 +45,17 @@ public class HangMan {
         return woord.isGeraden();
     }
 
-    public void doeGok(String s) {
-        woord.raad(s.charAt(0));
-    }
+    public boolean doeGok(String s) {
+        return woord.raad(s.charAt(0));
+        }
+
 
     public Speler getSpeler() {
         return huidigeSpeler;
     }
 
     public boolean isGameOver() {
-        return false;
+        return isGameOver;
     }
 
     public boolean isGewonnen() {
@@ -71,5 +72,9 @@ public class HangMan {
 
     public void raad(char letter) {
         woord.raad(letter);
+    }
+
+    public void setIsGameOver(boolean isGameOver) {
+        this.isGameOver = isGameOver;
     }
 }

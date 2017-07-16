@@ -9,7 +9,7 @@ import java.awt.*;
  * Created by yanice on 07/06/2017.
  */
 public abstract class Vorm implements Drawable {
-
+    private boolean zichtbaar = false;
     private Omhullende omhullende;
     protected abstract void setOmhullende();
     public void setOmhullende(Omhullende o){
@@ -29,4 +29,11 @@ public abstract class Vorm implements Drawable {
 
     }
 
+    public boolean isZichtbaar() {
+        return zichtbaar;
+    }
+
+    public void setZichtbaar(boolean zichtbaar) {
+        this.zichtbaar = zichtbaar;
+    }
 }
